@@ -10,8 +10,9 @@
 
 # production
 /build
-#/current
+/current
 /releases
+/logs
 
 # misc
 .DS_Store
