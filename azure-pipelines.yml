@@ -4,16 +4,45 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  - main
 
-pool:
-  vmImage: ubuntu-latest
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+          - script: |
+              npm install
+              npm build
+            displayName: 'npm install, build and test'
+      - job: deploy
+        dependsOn: Build
+        displayName: Deploy 
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: SSH@0
+            inputs:
+              sshEndpoint: 'muhaimin-ssh'
+              # runOptions: 'commands' 
+              # commands: cd app && git checkout main && git pull && /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 startOrRestart ecosystem.json
+              runOptions: 'inline'
+              inline: |
+                cd app
+                git checkout main
+                git pull
+                npm install
+                npm build
+                /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 restart app
+              failOnStdErr: false
