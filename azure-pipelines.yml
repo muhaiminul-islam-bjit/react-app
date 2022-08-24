@@ -45,4 +45,8 @@ stages:
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/npm install
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/npm run build
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 restart app
+                mkdir -p releases
+                releaseNumber="$(date +"%d-%m-%Y-%H%M%S")"
+                mkdir releases/$releaseNumber
+                cp -a build/.  releases/$releaseNumber/
               failOnStdErr: false
