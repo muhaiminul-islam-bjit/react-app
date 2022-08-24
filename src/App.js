@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          How many times I have to check
+          All Task are done. Now I am going to sleep
         </p>
         <a
           className="App-link"
