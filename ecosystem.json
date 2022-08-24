@@ -4,7 +4,7 @@
       "script": "serve", 
       "exec_mode": "fork_mode",
       "env": {
-        "PM2_SERVE_PATH": "current/*",
+        "PM2_SERVE_PATH": "current/*/",
         "PM2_SERVE_PORT": 3000
       }
     }]
