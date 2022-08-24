@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Late night tessting
+          How many times I have to check
         </p>
         <a
           className="App-link"
