@@ -48,6 +48,6 @@ stages:
                 releaseNumber="$(date +"%d-%m-%Y-%H%M%S")"
                 mkdir releases/$releaseNumber
                 cp -a build/.  releases/$releaseNumber/
-                ln -s releases/$releaseNumber/ current/
+                ln -sf releases/$releaseNumber/ current/
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 startOrRestart current/ecosystem.json
               failOnStdErr: false
