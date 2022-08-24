@@ -44,6 +44,7 @@ stages:
                 git pull
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/npm install
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/npm run build
+                mkdir -p current
                 mkdir -p releases
                 releaseNumber="$(date +"%d-%m-%Y-%H%M%S")"
                 mkdir releases/$releaseNumber
