@@ -1,0 +1,12 @@
+{
+    "apps": [{
+      "name": "my-app",
+      "script": "serve",
+      "cwd": "./", 
+      "exec_mode": "fork_mode",
+      "env": {
+        "PM2_SERVE_PATH": "current/24-*",
+        "PM2_SERVE_PORT": 3000
+      }
+    }]
+  }
