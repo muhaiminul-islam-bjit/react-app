@@ -50,6 +50,6 @@ stages:
                 mkdir releases/$releaseNumber
                 cp -a build/.  releases/$releaseNumber/
                 rm -rf current/*
-                ln -sf /home/azureuser/app/releases/$releaseNumber/ current/
+                ln -sf /home/azureuser/app/releases/$releaseNumber/ current/runningRelease
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 startOrRestart ecosystem.json
               failOnStdErr: false
