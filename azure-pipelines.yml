@@ -42,7 +42,7 @@ stages:
                 cd app
                 git checkout main
                 git pull
-                npm install
-                npm run build
+                /home/azureuser/.nvm/versions/node/v16.0.0/bin/npm install
+                /home/azureuser/.nvm/versions/node/v16.0.0/bin/npm run build
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 restart app
               failOnStdErr: false
