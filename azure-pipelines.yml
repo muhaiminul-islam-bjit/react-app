@@ -50,5 +50,5 @@ stages:
                 cp -a build/.  releases/$releaseNumber/
                 rm -rf current/
                 ln -sf /home/azureuser/app/releases/$releaseNumber/ current/
-                /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 startOrRestart current/ecosystem.json
+                /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 startOrRestart ecosystem.json
               failOnStdErr: false
