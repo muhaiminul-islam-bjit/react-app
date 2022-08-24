@@ -24,7 +24,7 @@ stages:
               versionSpec: '16.x'
           - script: |
               npm install
-              npm build
+              npm run build
             displayName: 'npm install, build and test'
       - job: deploy
         dependsOn: Build
@@ -43,6 +43,6 @@ stages:
                 git checkout main
                 git pull
                 npm install
-                npm build
+                npm run build
                 /home/azureuser/.nvm/versions/node/v16.0.0/bin/pm2 restart app
               failOnStdErr: false
