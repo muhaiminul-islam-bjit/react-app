@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Checking without restart pm2
+          Without restarting pm2 and it's working
         </p>
         <a
           className="App-link"
